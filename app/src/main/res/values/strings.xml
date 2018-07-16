@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">手机卫士</string>
+
+    <string name="title_function_list">功能列表</string>
+    <string name="main_marquee_text">行李架上的飞机克莱斯勒点击发送旅客，铺开了大门惹人，哦立刻搭街坊公里</string>
+    <string name="title_setting_center">设置中心</string>
+    <string name="title_lost_find">手机防盗</string>
+    <string name="title_setup1">1. 欢迎使用手机防盗</string>
+</resources>

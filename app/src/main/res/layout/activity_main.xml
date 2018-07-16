@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--优化写控件的方法：-->
+    <!--① 在新建Style属性中指定控件的共同属性，创建新Style。-->
+    <!--② 自定义组合控件，在简单的自定义控件中，指定控件的共同属性。-->
+    <!--③ include方法，此方法这里不做介绍。-->
+
+    <TextView
+        android:text="@string/title_function_list"
+        style="@style/TitleStyle" />
+
+    <com.luo.mobile_safe.view.MarqueeTextView
+        android:text="@string/main_marquee_text"
+        style="@style/MarqueeStyle"/>
+
+    <GridView
+        android:id="@+id/grid_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dip"
+        android:numColumns="3"
+        android:verticalSpacing="10dip" />
+
+</LinearLayout>
