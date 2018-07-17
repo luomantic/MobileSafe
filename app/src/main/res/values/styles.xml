@@ -43,7 +43,7 @@
     <style name="button_next_style">
         <item name="android:onClick">next</item>
         <item name="android:drawableRight">@mipmap/next</item>
-        <item name="android:background">@drawable/button_select</item>
+        <item name="android:background">@drawable/selector_button</item>
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:text">下一步</item>
@@ -54,7 +54,7 @@
     <style name="button_pre_style">
         <item name="android:onClick">pre</item>
         <item name="android:drawableLeft">@mipmap/previous</item>
-        <item name="android:background">@drawable/button_select</item>
+        <item name="android:background">@drawable/selector_button</item>
         <item name="android:layout_alignParentLeft">true</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:text">上一步</item>

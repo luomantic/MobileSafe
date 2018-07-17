@@ -18,8 +18,6 @@ public class MobileApp extends Application {
     }
 
     private void initToast() {
-        ToastUtils.setMsgColor(111);
-        ToastUtils.setBgColor(999);
         ToastUtils.setMsgTextSize(20);
     }
 

@@ -6,4 +6,8 @@
     <string name="title_setting_center">设置中心</string>
     <string name="title_lost_find">手机防盗</string>
     <string name="title_setup1">1. 欢迎使用手机防盗</string>
+    <string name="title_setup2">2. 手机卡绑定</string>
+    <string name="title_setup3">3. 设置安全号码</string>
+    <string name="title_setup4">4. 恭喜您，设置完成</string>
+    <string name="title_contact_list">选择联系人</string>
 </resources>

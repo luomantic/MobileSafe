@@ -2,14 +2,13 @@ package com.luo.mobile_safe.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.luo.mobile_safe.Constant;
+import com.luo.mobile_safe.constant.Constant;
 import com.luo.mobile_safe.R;
 
 public class SettingItemView extends RelativeLayout {

@@ -22,7 +22,7 @@ import com.blankj.utilcode.util.EncryptUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.luo.mobile_safe.Constant;
+import com.luo.mobile_safe.constant.Constant;
 import com.luo.mobile_safe.R;
 
 /*
@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (dialog.getInputEditText() != null) {
                     String number = dialog.getInputEditText().getText().toString();
-                    Log.e("tag", SPUtils.getInstance().getString(Constant.PASSWORD));
                     if (StringUtils.equals(EncryptUtils.encryptMD5ToString(number), SPUtils.getInstance().getString(Constant.PASSWORD))) {
                         startActivity(new Intent(MainActivity.this, LostFindActivity.class));
                     }else {

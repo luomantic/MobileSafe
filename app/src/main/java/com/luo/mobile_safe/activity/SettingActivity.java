@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.blankj.utilcode.util.SPUtils;
-import com.luo.mobile_safe.Constant;
+import com.luo.mobile_safe.constant.Constant;
 import com.luo.mobile_safe.R;
 import com.luo.mobile_safe.view.SettingItemView;
 
