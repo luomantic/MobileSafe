@@ -11,4 +11,6 @@ public class Constant {
     public static String PASSWORD = "password"; // 手机防盗页密码
     public static String IS_CONFIG = "config_set"; // 手机防盗页，设置向导
     public static String SIM_NUMBER = "config_sim"; // 手机SIM卡序列号
+    public static String CONTACT_NUM = "contact_num"; // 紧急联系人号码
+    public static String OPEN_SECURITY = "open_security"; // 是否开启防盗保护，总开关
 }
