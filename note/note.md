@@ -1,12 +1,5 @@
-
-### Tomcat升级json文件地址： 
-- 本地update.json地址：   
-[http://localhost:8080/update-info.json](localhost:8080/update-info.json)  
-
-- 本地update.json存放目录:  
-D:\Program Files\tomcat-8.5.32\webapps\ROOT
-
-- 获取update-info.json：  
+### 用GithubAPI当服务器地址：
+- 获取update-info.json：
 [https://raw.githubusercontent.com/luomantic/mobile-safe/master/app/update-info.json](https://raw.githubusercontent.com/luomantic/mobile-safe/master/app/update-info.json)
 
 - 新版本apk下载地址：  

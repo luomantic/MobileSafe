@@ -47,6 +47,8 @@ public class Setup3Activity extends AppCompatActivity{
     public void pre(View view) {
         startActivity(new Intent(Setup3Activity.this, Setup2Activity.class));
         finish();
+
+        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
     }
 
     public void next(View view) {
@@ -59,6 +61,8 @@ public class Setup3Activity extends AppCompatActivity{
         } else {
             ToastUtils.showLong("请输入电话号码");
         }
+
+        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
     }
 
     @Override

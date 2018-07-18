@@ -49,6 +49,8 @@ public class Setup4Activity extends AppCompatActivity{
     public void pre(View view) {
         startActivity(new Intent(Setup4Activity.this, Setup3Activity.class));
         finish();
+
+        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
     }
 
     public void next(View view) {
@@ -59,6 +61,8 @@ public class Setup4Activity extends AppCompatActivity{
         } else {
             ToastUtils.showLong("请开启防盗保护设置");
         }
+
+        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
     }
 
 }

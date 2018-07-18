@@ -69,6 +69,8 @@ public class Setup2Activity extends AppCompatActivity {
     public void pre(View view) {
         startActivity(new Intent(Setup2Activity.this, Setup1Activity.class));
         finish();
+
+        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
     }
 
     public void next(View view) {
@@ -78,6 +80,7 @@ public class Setup2Activity extends AppCompatActivity {
         }else {
             ToastUtils.showLong("请绑定SIM卡");
         }
+        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
     }
 
 }
