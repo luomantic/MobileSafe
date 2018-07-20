@@ -39,6 +39,7 @@ public class BootReceiver extends BroadcastReceiver {
             String desNumber = SPUtils.getInstance().getString(Constant.CONTACT_NUM);
             smsManager.sendTextMessage(desNumber, null, "SIM Changed!!!", null, null);
         }
+
     }
 
 }

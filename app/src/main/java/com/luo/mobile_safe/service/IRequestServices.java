@@ -1,4 +1,4 @@
-package com.luo.mobile_safe.net;
+package com.luo.mobile_safe.service;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

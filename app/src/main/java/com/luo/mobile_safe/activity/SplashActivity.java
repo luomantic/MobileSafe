@@ -25,7 +25,7 @@ import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.luo.mobile_safe.constant.Constant;
 import com.luo.mobile_safe.R;
-import com.luo.mobile_safe.net.IRequestServices;
+import com.luo.mobile_safe.service.IRequestServices;
 
 import org.json.JSONException;
 import org.json.JSONObject;
