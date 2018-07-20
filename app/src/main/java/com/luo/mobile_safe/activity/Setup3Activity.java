@@ -3,7 +3,6 @@ package com.luo.mobile_safe.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +10,10 @@ import android.widget.EditText;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.StringUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.blankj.utilcode.util.Utils;
 import com.luo.mobile_safe.R;
 import com.luo.mobile_safe.constant.Constant;
 
-public class Setup3Activity extends AppCompatActivity{
+public class Setup3Activity extends BaseSetupActivity{
     Button button;
     EditText et_phone_number;
 
@@ -25,6 +23,29 @@ public class Setup3Activity extends AppCompatActivity{
         setContentView(R.layout.activity_setup3);
 
         initView();
+    }
+
+    @Override
+    public void showNext() {
+        String phone = et_phone_number.getText().toString();
+        if (!StringUtils.isEmpty(phone)) {
+            startActivity(new Intent(Setup3Activity.this, Setup4Activity.class));
+            finish();
+
+            SPUtils.getInstance().put(Constant.CONTACT_NUM, phone);
+        } else {
+            ToastUtils.showLong("请输入电话号码");
+        }
+
+        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
+    }
+
+    @Override
+    public void showPre() {
+        startActivity(new Intent(Setup3Activity.this, Setup2Activity.class));
+        finish();
+
+        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
     }
 
     private void initView() {
@@ -42,27 +63,6 @@ public class Setup3Activity extends AppCompatActivity{
                 startActivityForResult(new Intent(Setup3Activity.this, ContactListActivity.class), 0);
             }
         });
-    }
-
-    public void pre(View view) {
-        startActivity(new Intent(Setup3Activity.this, Setup2Activity.class));
-        finish();
-
-        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
-    }
-
-    public void next(View view) {
-        String phone = et_phone_number.getText().toString();
-        if (!StringUtils.isEmpty(phone)) {
-            startActivity(new Intent(Setup3Activity.this, Setup4Activity.class));
-            finish();
-
-            SPUtils.getInstance().put(Constant.CONTACT_NUM, phone);
-        } else {
-            ToastUtils.showLong("请输入电话号码");
-        }
-
-        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
     }
 
     @Override

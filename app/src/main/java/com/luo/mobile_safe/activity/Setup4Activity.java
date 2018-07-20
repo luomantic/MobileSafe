@@ -3,17 +3,15 @@ package com.luo.mobile_safe.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
-import com.luo.mobile_safe.constant.Constant;
 import com.luo.mobile_safe.R;
+import com.luo.mobile_safe.constant.Constant;
 
-public class Setup4Activity extends AppCompatActivity{
+public class Setup4Activity extends BaseSetupActivity {
     CheckBox checkBox;
 
     @Override
@@ -22,6 +20,27 @@ public class Setup4Activity extends AppCompatActivity{
         setContentView(R.layout.activity_setup4);
 
         initView();
+    }
+
+    @Override
+    public void showNext() {
+        if (SPUtils.getInstance().getBoolean(Constant.OPEN_SECURITY)) {
+            startActivity(new Intent(Setup4Activity.this, LostFindActivity.class));
+            finish();
+            SPUtils.getInstance().put(Constant.IS_CONFIG, true);
+        } else {
+            ToastUtils.showLong("请开启防盗保护设置");
+        }
+
+        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
+    }
+
+    @Override
+    public void showPre() {
+        startActivity(new Intent(Setup4Activity.this, Setup3Activity.class));
+        finish();
+
+        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
     }
 
     private void initView() {
@@ -44,25 +63,6 @@ public class Setup4Activity extends AppCompatActivity{
                 }
             }
         });
-    }
-
-    public void pre(View view) {
-        startActivity(new Intent(Setup4Activity.this, Setup3Activity.class));
-        finish();
-
-        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
-    }
-
-    public void next(View view) {
-        if (SPUtils.getInstance().getBoolean(Constant.OPEN_SECURITY)) {
-            startActivity(new Intent(Setup4Activity.this, LostFindActivity.class));
-            finish();
-            SPUtils.getInstance().put(Constant.IS_CONFIG, true);
-        } else {
-            ToastUtils.showLong("请开启防盗保护设置");
-        }
-
-        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
     }
 
 }

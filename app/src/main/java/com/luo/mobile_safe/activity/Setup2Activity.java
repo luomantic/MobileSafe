@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.view.View;
 
@@ -22,7 +21,7 @@ import com.luo.mobile_safe.R;
 import com.luo.mobile_safe.constant.Constant;
 import com.luo.mobile_safe.view.SettingItemView;
 
-public class Setup2Activity extends AppCompatActivity {
+public class Setup2Activity extends BaseSetupActivity {
     SettingItemView itemView;
 
     @Override
@@ -31,6 +30,25 @@ public class Setup2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_setup2);
 
         initView();
+    }
+
+    @Override
+    public void showNext() {
+        if (!StringUtils.isEmpty(SPUtils.getInstance().getString(Constant.SIM_NUMBER))){
+            startActivity(new Intent(Setup2Activity.this, Setup3Activity.class));
+            finish();
+        }else {
+            ToastUtils.showLong("请绑定SIM卡");
+        }
+        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
+    }
+
+    @Override
+    public void showPre() {
+        startActivity(new Intent(Setup2Activity.this, Setup1Activity.class));
+        finish();
+
+        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
     }
 
     private void initView() {
@@ -64,23 +82,6 @@ public class Setup2Activity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    public void pre(View view) {
-        startActivity(new Intent(Setup2Activity.this, Setup1Activity.class));
-        finish();
-
-        overridePendingTransition(R.anim.pre_in_anim, R.anim.pre_out_anim);
-    }
-
-    public void next(View view) {
-        if (!StringUtils.isEmpty(SPUtils.getInstance().getString(Constant.SIM_NUMBER))){
-            startActivity(new Intent(Setup2Activity.this, Setup3Activity.class));
-            finish();
-        }else {
-            ToastUtils.showLong("请绑定SIM卡");
-        }
-        overridePendingTransition(R.anim.next_in_anim, R.anim.next_out_anim);
     }
 
 }
