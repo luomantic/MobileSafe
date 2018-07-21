@@ -20,7 +20,7 @@ public class BootReceiver extends BroadcastReceiver {
     String newNumber;
     String oldNumber;
 
-    @SuppressLint("HardwareIds")
+    @SuppressLint({"HardwareIds", "UnsafeProtectedBroadcastReceiver"})
     @Override
     public void onReceive(Context context, Intent intent) {
         // 一旦监听到开机广播，就需要去发送短信，给指定号码

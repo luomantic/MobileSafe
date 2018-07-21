@@ -10,4 +10,6 @@
     <string name="title_setup3">3. 设置安全号码</string>
     <string name="title_setup4">4. 恭喜您，设置完成</string>
     <string name="title_contact_list">选择联系人</string>
+    <string name="device_admin">超级管理员</string>
+    <string name="device_admin_description">一键锁屏，一键激活，一键卸载，一键清楚数据</string>
 </resources>
