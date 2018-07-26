@@ -19,7 +19,6 @@ public class SmsReceiver extends BroadcastReceiver {
     ComponentName componentName;
     DevicePolicyManager mDPM;
 
-
     @Override
     public void onReceive(Context context, Intent intent) {
         //1,判断是否开启了防盗保护

@@ -17,6 +17,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.FileUtils;
 import com.blankj.utilcode.util.SPUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.daimajia.numberprogressbar.NumberProgressBar;
@@ -31,7 +32,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Objects;
 
 import okhttp3.ResponseBody;
@@ -69,6 +72,48 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         startAnimation();
+        initDB();
+    }
+
+    private void initDB() {
+        // 1. 归属地数据拷贝
+        initAddressDB("address.db");
+    }
+
+    private void initAddressDB(String dbName) {
+        // 1.在files文件夹下创建同名数据库文件过程
+        File files = getFilesDir();  //getCacheDir(); Environment.getExternalStorageDirectory().getAbsolutePath();
+        File file = new File(files, dbName);
+        if (file.exists()) {
+            return ;
+        }
+
+        // 2.输入流读取第三方资产目录下的文件
+        InputStream stream = null;
+        FileOutputStream outputStream = null;
+        try {
+            stream = getAssets().open(dbName);
+            // 3.将读取到的内容写入到指定文件夹的文件中去
+            outputStream = new FileOutputStream(file);
+            // 4.每次读取内容的大小
+            byte[] bs = new byte[1024];
+             int temp;
+             while ((temp = stream.read(bs))!= -1) {
+                 outputStream.write(bs, 0, temp);
+             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (stream!=null && outputStream!=null) {
+                try {
+                    stream.close();
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
     /* splash页进入动画 */

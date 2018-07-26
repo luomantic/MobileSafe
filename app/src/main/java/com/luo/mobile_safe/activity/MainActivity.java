@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
                         */
                         showPasswordDialog();
                         break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, AToolActivity.class));
+                        break;
                     case 8:
                         startActivity(new Intent(MainActivity.this, SettingActivity.class));
                         break;
